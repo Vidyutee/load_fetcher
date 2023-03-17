@@ -20,7 +20,9 @@ def main():
 
     df = pd.DataFrame(np.vstack(df), columns = headers)
     df = df.loc[:, ["Time Block", "MCP (Rs/MWh)*"]]
-    df.to_csv("data.csv", index = False)
+
+    with open("data.csv",'w') as data_file:
+        data_file.write(df.to_csv(index=False))
 
 if __name__ == "__main__":
     main()
