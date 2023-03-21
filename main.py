@@ -23,7 +23,7 @@ def main():
     
     # Orginally, the data retrieved has its MCP in Rs/MWh, which needs to be converted to Rs/kWh 
     # by dividing by 1000
-    df["MCP (Rs/kWh)*"] = df["MCP (Rs/kWh)*"].apply(lambda x: int(x)/1000)
+    df["MCP (Rs/kWh)*"] = df["MCP (Rs/kWh)*"].apply(lambda x: float(x)/1000)
 
     with open("data.csv",'w') as data_file:
         data_file.write(df.to_csv(index=False))
